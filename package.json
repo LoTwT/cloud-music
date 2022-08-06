@@ -1,38 +1,21 @@
 {
-  "name": "temp",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "cloud-music",
+  "version": "1.0.0",
+  "description": "",
+  "packageManager": "pnpm@7.8.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "prettier": "prettier -w .",
     "prepare": "simple-git-hooks"
   },
-  "dependencies": {
-    "better-scroll": "^2.4.2",
-    "immutable": "^4.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^8.0.2",
-    "react-router": "^6.3.0",
-    "react-router-dom": "^6.3.0",
-    "redux": "^4.2.0",
-    "redux-immutable": "^4.0.0",
-    "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.5",
-    "swiper": "^8.3.2"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "@types/styled-components": "^5.1.25",
-    "@vitejs/plugin-react": "^2.0.0",
     "lint-staged": "^13.0.3",
+    "pnpm": "^7.8.0",
     "prettier": "^2.7.1",
-    "simple-git-hooks": "^2.8.0",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.4"
+    "simple-git-hooks": "^2.8.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged"
