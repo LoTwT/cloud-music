@@ -32,6 +32,17 @@ function Recommend(props: IRecommendProps) {
   const bannerListJS = bannerList ? bannerList.toJS() : []
   const recommendListJS = recommendList ? recommendList.toJS() : []
 
+  useEffect(() => {
+    // 如果页面有数据，则不发请求
+    //immutable 数据结构中长度属性 size
+    if (!bannerList.size) {
+      getBannerDataDispatch()
+    }
+    if (!recommendList.size) {
+      getRecommendListDataDispatch()
+    }
+  }, [])
+
   return (
     <Content>
       <Scroll className="list">
