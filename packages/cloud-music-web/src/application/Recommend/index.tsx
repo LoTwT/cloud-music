@@ -5,12 +5,14 @@ import Scroll from "../../components/scroll"
 import { Content } from "./style"
 import * as actionTypes from "./store/actionCreators"
 import { connect } from "react-redux"
+import Loading from "../../baseUI/loading"
 
 interface IRecommendProps {
   bannerList: any
   recommendList: any
   getBannerDataDispatch: () => void
   getRecommendListDataDispatch: () => void
+  [key: string]: any
 }
 
 function Recommend(props: IRecommendProps) {
@@ -19,6 +21,7 @@ function Recommend(props: IRecommendProps) {
     recommendList,
     getBannerDataDispatch,
     getRecommendListDataDispatch,
+    enterLoading,
   } = props
 
   useEffect(() => {
@@ -37,6 +40,7 @@ function Recommend(props: IRecommendProps) {
           <RecommendList recommendList={recommendListJS} />
         </div>
       </Scroll>
+      {!!enterLoading ? <Loading></Loading> : null}
     </Content>
   )
 }
@@ -47,6 +51,7 @@ const mapStateToProps = (state: any) => ({
   // 不然每次 diff 比对 props 的时候都是不一样的引用，还是导致不必要的重渲染，属于滥用 immutable
   bannerList: state.getIn(["recommend", "bannerList"]),
   recommendList: state.getIn(["recommend", "recommendList"]),
+  enterLoading: state.getIn(["recommend", "enterLoading"]),
 })
 
 // 映射 dispatch 到 props 上

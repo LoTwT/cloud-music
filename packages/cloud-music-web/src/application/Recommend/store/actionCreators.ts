@@ -18,6 +18,11 @@ export const changeRecommendList = (data: TData) => ({
   data: fromJS(data),
 })
 
+export const changeEnterLoading = (data: boolean) => ({
+  type: actionTypes.CHANGE_ENTER_LOADING,
+  data,
+})
+
 export const getBannerList = () => {
   return (dispatch: Dispatch) => {
     getBanner()
@@ -32,9 +37,11 @@ export const getBannerList = () => {
 
 export const getRecommendList = () => {
   return (dispatch: Dispatch) => {
+    changeEnterLoading(true)
     getRecommends()
       .then((data) => {
         dispatch(changeRecommendList(data.result))
+        dispatch(changeEnterLoading(false)) // 改变 loading
       })
       .catch(() => {
         console.log("推荐歌单数据传输错误")
