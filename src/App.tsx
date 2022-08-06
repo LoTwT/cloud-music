@@ -1,14 +1,18 @@
-import { useState } from "react"
-import "./App.css"
-import { GlobalStyle } from "./style"
 import { IconStyle } from "./assets/iconfont/iconfont"
+import { BrowserRouter } from "react-router-dom"
+import RouterGenerator from "./routes"
+
+import { GlobalStyle } from "./style"
+
+import "./App.css"
+
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <GlobalStyle></GlobalStyle>
       <IconStyle></IconStyle>
-      <i className="iconfont">&#xe62b;</i>
-    </div>
+      {<RouterGenerator />}
+    </BrowserRouter>
   )
 }
 
