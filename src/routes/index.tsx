@@ -12,6 +12,10 @@ const RouterGenerator = () => {
       children: [
         { index: true, element: <Recommend /> },
         {
+          path: "recommend",
+          element: <Recommend />,
+        },
+        {
           path: "singers",
           element: <Singers />,
         },
