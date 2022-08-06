@@ -18,6 +18,7 @@ specifiers:
   redux-thunk: ^2.4.1
   simple-git-hooks: ^2.8.0
   styled-components: ^5.3.5
+  swiper: ^8.3.2
   typescript: ^4.7.4
   vite: ^3.0.4
 
@@ -32,6 +33,7 @@ dependencies:
   redux-immutable: 4.0.0_immutable@4.1.0
   redux-thunk: 2.4.1_redux@4.2.0
   styled-components: 5.3.5_biqbaboplfbrettd7655fr4n2y
+  swiper: 8.3.2
 
 devDependencies:
   '@types/react': 18.0.15
@@ -647,6 +649,12 @@ packages:
     dependencies:
       ms: 2.1.2
       supports-color: 5.5.0
+    dev: false
+
+  /dom7/4.0.4:
+    resolution: {integrity: sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==}
+    dependencies:
+      ssr-window: 4.0.2
     dev: false
 
   /eastasianwidth/0.2.0:
@@ -1426,6 +1434,10 @@ packages:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
     dev: true
 
+  /ssr-window/4.0.2:
+    resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==}
+    dev: false
+
   /string-argv/0.3.1:
     resolution: {integrity: sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==}
     engines: {node: '>=0.6.19'}
@@ -1501,6 +1513,15 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /swiper/8.3.2:
+    resolution: {integrity: sha512-8wsC7ORYvVSnLUoxs2+xmfLrDPNjBVQXMCFbOlqtHeON6wtu/blOyySDr8TCBCdse1bdcIbn7m8xJNxVFL8o4Q==}
+    engines: {node: '>= 4.7.0'}
+    requiresBuild: true
+    dependencies:
+      dom7: 4.0.4
+      ssr-window: 4.0.2
+    dev: false
 
   /through/2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
