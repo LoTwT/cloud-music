@@ -5,7 +5,7 @@ import { SliderContainer } from "./style"
 import "../../../node_modules/swiper/swiper.min.css"
 
 interface ISliderProps {
-  bannerList: { imageUrl: string; id: number }[]
+  bannerList: { imageUrl: string }[]
 }
 
 function Slider(props: ISliderProps) {
@@ -33,7 +33,7 @@ function Slider(props: ISliderProps) {
       <div className="slider-container">
         <div className="swiper-wrapper">
           {bannerList.map((slider) => (
-            <div className="swiper-slide" key={slider.id}>
+            <div className="swiper-slide" key={slider.imageUrl}>
               <div className="slider-nav">
                 <img
                   src={slider.imageUrl}
