@@ -5,6 +5,8 @@
   "packageManager": "pnpm@7.8.0",
   "main": "index.js",
   "scripts": {
+    "web": "pnpm -C packages/cloud-music-web dev",
+    "api": "pnpm -C packages/cloud-music-api start",
     "prettier": "prettier -w .",
     "prepare": "simple-git-hooks"
   },
