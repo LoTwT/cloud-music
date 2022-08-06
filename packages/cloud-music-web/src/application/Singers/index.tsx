@@ -3,6 +3,16 @@ import Horizen from "../../baseUI/horizen-item"
 import { categoryTypes, alphaTypes } from "../../api/config"
 import { List, ListContainer, ListItem, NavContainer } from "./style"
 import Scroll from "../../components/scroll"
+import { connect } from "react-redux"
+import {
+  changeEnterLoading,
+  changePullDownLoading,
+  changePullUpLoading,
+  getHotSingerList,
+  getSingerList,
+  refreshMoreHotSingerList,
+  refreshMoreSingerList,
+} from "./store/actionCreators"
 
 function Singers() {
   const [category, setCategory] = useState("")
@@ -72,4 +82,41 @@ function Singers() {
   )
 }
 
-export default memo(Singers)
+const mapStateToProps = (state) => ({
+  singerList: state.getIn(["singers", "singerList"]),
+  enterLoading: state.getIn(["singers", "enterLoading"]),
+  pullUpLoading: state.getIn(["singers", "pullUpLoading"]),
+  pullDownLoading: state.getIn(["singers", "pullDownLoading"]),
+  pageCount: state.getIn(["singers", "pageCount"]),
+})
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getHotSingerDispatch() {
+      dispatch(getHotSingerList())
+    },
+    updateDispatch(category, alpha) {
+      dispatch(changeEnterLoading(true)) //loading，现在实现控制逻辑，效果实现放到下一节，后面的loading同理
+      dispatch(getSingerList(category, alpha))
+    },
+    // 滑到最底部刷新部分的处理
+    pullUpRefreshDispatch(category, alpha, hot, count) {
+      dispatch(changePullUpLoading(true))
+      if (hot) {
+        dispatch(refreshMoreHotSingerList())
+      } else {
+        dispatch(refreshMoreSingerList(category, alpha))
+      }
+    },
+    //顶部下拉刷新
+    pullDownRefreshDispatch(category, alpha) {
+      dispatch(changePullDownLoading(true))
+      if (category === "" && alpha === "") {
+        dispatch(getHotSingerList())
+      } else {
+        dispatch(getSingerList(category, alpha))
+      }
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Singers))
